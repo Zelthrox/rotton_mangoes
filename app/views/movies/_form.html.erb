@@ -1,0 +1,32 @@
+<%= form_for @movie do |f| %>
+  <% if @movie.errors.any? %>
+    <%= pluralize(@movie.errors.count, "error") %> prevent this movie from being submitted:
+    <ul>
+      <% @movie.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+
+    <%= f.label :director %>
+    <%= f.text_field :director %>
+
+    <%= f.label :runtime_in_minutes %>
+    <%= f.text_field :runtime_in_minutes %>
+
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+
+    <%= f.label :poster_image_url %>
+    <%= f.text_field :poster_image_url %>
+
+    <%= f.label :release_date %>
+    <%= f.text_field :release_date %>
+
+    <%= f.submit %>
+  </div>
+<% end %>

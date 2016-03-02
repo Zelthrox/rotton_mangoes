@@ -1,0 +1,11 @@
+<h1> Movies Index Here </h1>
+<div><%= link_to "Submit a Movie!", new_movie_path %>
+    <% @movies.each do |movie| %>
+      <div><%= link_to image_tag(movie.poster_image_url), movie_path(movie) %></div>
+      <div><%= link_to movie.title, movie_path(movie) %></div>
+      <div><%= formatted_date(movie.release_date) %></div>
+      <div><%= movie.director %> | <%= movie.runtime_in_minutes %> minutes</div>
+      <div><%= movie.description %></div>
+      <div>Average Rating:<%= movie.review_average %>/10 </div>
+    <% end %>
+</div>
