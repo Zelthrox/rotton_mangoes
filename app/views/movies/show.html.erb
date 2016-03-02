@@ -1,7 +1,7 @@
 <h1> Movies Show Here </h1>
 <div>
   <%= link_to "Return to all movies", movies_path %>
-  <%= link_to image_tag(@movie.poster_image_url), movies_path(@movie) %>
+  <%= link_to image_tag(@movie.image.thumb.url), movies_path(@movie) %>
   <%= @movie.title %> (<%= link_to "edit", edit_movie_path(@movie) %>, <%= link_to "delete", movie_path(@movie), method: :delete, data: {confirm: "You sure?"} %>)  Dir. <%= @movie.director %> | <%= @movie.runtime_in_minutes %> minutes
   <%= @movie.description %>
 </div>
