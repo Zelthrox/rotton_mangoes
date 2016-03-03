@@ -1,9 +1,10 @@
 <h1> User Index Here </h1>
 <div><%= link_to "Return to homepage", movies_path %></div>
+<div>
   <% @users.each do |user| %>
-    <div><%= link_to user.full_name, admin_user_path(user) %></div>
-    <div><%= user.email %></div>
-    <div><%= user.password %></div>
-    <div><%= user.admin %></div>
+    <%= user.full_name %>
   <% end %>
+  <nav>
+    <%= paginate @users %>
+  </nav>
 </div>

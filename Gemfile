@@ -41,3 +41,6 @@ gem 'bcrypt', '~> 3.1.7'
 #For image file uploading
 gem 'carrierwave', '~> 0.10.0'
 gem 'mini_magick', '~> 4.3'
+
+#For paginator
+gem 'kaminari', '~> 0.16.3'
