@@ -1,0 +1,8 @@
+<h1> User Index Here </h1>
+<div><%= link_to "Create a new user!", new_admin_user %>
+    <% @users.each do |user| %>
+      <div><%= link_to user.fullname, user_path(user) %></div>
+      <div><%= user.email %></div>
+      <div><%= user.password %></div>
+    <% end %>
+</div>
