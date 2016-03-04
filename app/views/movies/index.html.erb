@@ -1,6 +1,5 @@
 <h1> Movies Index Here </h1>
-<%= link_to "Submit a Movie!", new_movie_path %>
-<div>
+<div id="movies">
   <% @movies.each do |movie| %>
     <div style="float:left;">
       <div><%= link_to image_tag(movie.image.thumb.url), movie_path(movie) %></div>
@@ -11,6 +10,9 @@
       <div>Average Rating:<%= movie.review_average %>/10 </div>
     </div>
   <% end %>
+  <nav style="clear:both;">
+    <%= paginate @movies %>
+  </nav>
 </div>
 
 <div style="height:10vh; clear:both;"></div>

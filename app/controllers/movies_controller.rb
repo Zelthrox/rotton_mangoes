@@ -1,6 +1,6 @@
 class MoviesController < ApplicationController
   def index
-    @movies = Movie.all
+    @movies = Movie.all.page(params[:page]).per(4)
     @movie = Movie.new
   end
 
@@ -19,10 +19,15 @@ class MoviesController < ApplicationController
   def create
     @movie = Movie.new(movie_params)
 
-    if @movie.save
-      redirect_to movies_path, notice: "#{@movie.title} was submitted successfully!"
-    else
-      render :new
+    respond_to do |format|
+      if @movie.save
+        format.html {redirect_to movies_path, notice: 'Movie has been created'}
+        format.js {}
+        format.json {render json: @movie, status: :created, location: @movie}
+      else
+        format.html {render action: "new"}
+        format.json {render json: @movie.error, status: :unprocessable_entity}
+      end
     end
   end
 

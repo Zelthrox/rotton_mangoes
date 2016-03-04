@@ -1,4 +1,4 @@
-<%= form_for @movie, html: { multipart: true } do |f| %>
+<%= form_for(@movie, remote: true, :authenticity_token => true, html: { multipart: true }) do |f| %>
   <% if @movie.errors.any? %>
     <%= pluralize(@movie.errors.count, "error") %> prevent this movie from being submitted:
     <ul>
